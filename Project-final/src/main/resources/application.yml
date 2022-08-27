@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/market_budget2
-    username: root
-    password: root
+    url: jdbc:mysql://urdsxtac0ixefza9:8ywBMGT9YmfWTMpczsIW@breyz4svj9vtvadrz6bw-mysql.services.clever-cloud.com:3306/breyz4svj9vtvadrz6bw
+    username: urdsxtac0ixefza9
+    password: 8ywBMGT9YmfWTMpczsIW
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
