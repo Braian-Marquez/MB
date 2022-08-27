@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!--Ignoren estos links-->
+    <script type='text/javascript'
+            src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
+    <!--Ignoren estos links-->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- FontAwesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+          integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <!--Icon-->
+    <link rel="shortcut icon" th:ref="@{/assets/img/Logos-Icons/Home.svg}" type="image/x-icon">
+    <title>Market-Budget</title>
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+
+    <link th:href="@{/assets/css/index-style.css}" rel="stylesheet"/>
+</head>
+
+<body>
+<!-- ===============================================-->
+<!--    Stylesheets-->
+<!-- ===============================================-->
+<main>
+    <!-- ===============================================-->
+    <!--    Header Content-->
+    <!-- ===============================================-->
+    <header>
+        <!-- ===============================================-->
+        <!--    Nav Content-->
+        <!-- ===============================================-->
+        <nav class="navbar navbar-expand-lg navbar-light sticky-top m-0 p-1"
+             data-navbar-on-scroll="data-navbar-on-scroll">
+            <div class="container">
+                <a class="navbar-brand" th:href="@{/}">
+                    <img th:src="@{/assets/img/Logos/MarketBudget.png}" id="logo" alt="logo"/>
+
+                </a>
+                <h2 class="title">Market Budget</h2>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse mt-4 mt-lg-0" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+
+
+                        <li class="nav-item mt-2 ms-2">
+                            <a class="btn btn-warning" th:href="@{/}" >Home</a>
+                        </li>
+                        <li class="nav-item ms-2 mt-2">
+                            <a class="btn btn-warning" th:href="@{/customer/budgets}" >Presupuesto</a>
+                        </li>
+                        <li class="nav-item mt-2 ms-2">
+                            <a class="btn btn-warning" th:href="@{/home}" >Productos</a>
+                        </li>
+                        <div class="d-flex mt-2 ms-2">
+
+                            <div th:if="${session.id == null}">
+                                <a class="btn btn-warning" th:href="@{/auth/login}" >Acceder/Registrarse</a>
+                            </div>
+
+                        </div>
+                    </ul>
+                    <div th:if="${session.id != null}" class="d-flex mt-2 ms-2">
+                        <ul class="navbar-nav me-auto my-2 my-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                   data-bs-toggle="dropdown"
+                                   aria-expanded="false">
+                                    <i class="fa-solid fa-user ms-2" id="perfil"></i>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" th:href="@{/customer/profile/__${session.id}__}"
+                                    >Ver Perfil</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/customer/budgets}">Mi Lista</a></li>
+                                    <li>
+                                        <a class="dropdown-item" th:href="@{/logout}">Cerrar Sesion</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+        <!-- ===============================================-->
+        <!--    Nav Content Ends-->
+        <!-- ===============================================-->
+
+    </header>
+    <!-- ===============================================-->
+    <!--    Header Content Ends-->
+    <!-- ===============================================-->
+    <!-- ===============================================-->
+    <!--    Section Content 1-->
+    <!-- ===============================================-->
+    <header class="head">
+        <div class="area">
+            <ul class="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <div class="overlay ">
+                <h1 class="head-text position-absolute top-50 start-50 translate-middle tracking-in-expand ">¡Vos sos el
+                    responsable de tu economía!</h1>
+            </div>
+        </div>
+    </header>
+
+    <!--    Section Content 1 Ends-->
+    <!-- ===============================================-->
+    <!-- ===============================================-->
+    <!--    Section Content 2-->
+    <!-- ===============================================-->
+    <section id='section1' class="pt-5 ">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-md-start text-center py-6">
+
+                    <p class="mb-6 lead text-secondary  section1-p" >
+                        Aqui podras comparar calidad y precio al que más te convenga.
+                    </p>
+                    <div class="text-center text-md-start">
+                        <a class="btn btn-warning me-3 mt-2 btn-lg" th:href="@{/auth/sing-up}" role="button">¡Registrate!</a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-end ">
+                    <img class="pt-7 pt-md-0 img-fluid rotate-scale-up-ver "
+                         th:src="@{/assets/img/Logos-Icons/ecommerce.svg}"
+                         alt=""/>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ===============================================-->
+    <!--    Section Content 2 ends-->
+    <!-- ===============================================-->
+    <!-- ===============================================-->
+    <!--    Section Content 3-->
+    <!-- ===============================================-->
+    <section class="pt-5 pt-md-9 mb-6 mt-3" id="feature">
+
+        <div class="container">
+            <h1 class=" mb-5 text-center ">
+                Una herramienta  <br class="d-none d-xl-block"/>para controlar tus gastos
+            </h1>
+            <div class="row">
+                <div class="col-lg-3 col-sm-6 mb-2 ">
+                    <img class="mb-3 ms-n3  align-center" th:src="@{/assets/img/Logos-Icons/shopping.svg}" width="75" alt="Feature"/>
+                    <h4 class="mb-3">Calidad Asegurada</h4>
+                    <p class="mb-0 fw-medium text-secondary">
+                        Encuenta los productos mas accesibles.
+                    </p>
+                </div>
+                <div class="col-lg-3 col-sm-6 mb-2">
+                    <img class="mb-3 ms-n3" th:src="@{/assets/img/Logos-Icons/calculate.svg}" width="75" alt="Feature"/>
+                    <h4 class="mb-3">Costos Netos</h4>
+                    <p class="mb-0 fw-medium text-secondary">
+                        Asegura tus gastos.
+                    </p>
+                </div>
+                <div class="col-lg-3 col-sm-6 mb-2">
+                    <img class="mb-3 ms-n3" th:src="@{/assets/img/Logos-Icons/seguro.svg}" width="75" alt="Feature"/>
+                    <h4 class="mb-3">Seguridad en tus preferencias</h4>
+                    <p class="mb-0 fw-medium text-secondary">
+                        Espacio personalizado para cada cliente.
+                    </p>
+                </div>
+                <div class="col-lg-3 col-sm-6 mb-2">
+                    <img class="mb-3 ms-n3" th:src="@{/assets/img/Logos-Icons/tiempo.svg}" width="75" alt="Feature"/>
+                    <h4 class="mb-3">Consultas Rápidas</h4>
+                    <p class="mb-0 fw-medium text-secondary">
+                        Obten una consulta de precios rápidamente.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section Content 3 End ============================-->
+    <!-- ============================================-->
+
+    <!-- ============================================-->
+    <!--Section 4 Content Start ============================-->
+    <section class="pt-5 m-5 " id="manager">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <img class="img-fluid" th:src="@{/assets/img/image/manager.png}" alt=""/>
+                </div>
+                <div class="col-lg-6 mt-4">
+                    <h2 class="mb-4 ">Una Opción rápida y eficiente</h2>
+                    <p class="mb-4 fw-medium text-secondary">
+                        Un espacio creado para cuidar tu billetera, justo
+                        lo
+                        que necesitas.
+                    </p>
+                    <div class="d-flex align-items-center mb-3">
+                        <lord-icon src="https://cdn.lordicon.com/ivayzoru.json" trigger="hover"
+                                   colors="outline:#121331,primary:#30e849,secondary:#ebe6ef"
+                                   style="width:40px;height:40px">
+                        </lord-icon>
+                        <p class="fw-medium mb-0 text-secondary">
+                            No te preocupes estamos buscando <br/>los lugares más accesibles.
+                        </p>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <lord-icon src="https://cdn.lordicon.com/ivayzoru.json" trigger="hover"
+                                   colors="outline:#121331,primary:#30e849,secondary:#ebe6ef"
+                                   style="width:40px;height:40px">
+                        </lord-icon>
+                        <p class="fw-medium mb-0 text-secondary">
+                            Priorizamos la calidad de nuestros servicio <br/>para cada cliente.
+                        </p>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <lord-icon src="https://cdn.lordicon.com/ivayzoru.json" trigger="hover"
+                                   colors="outline:#121331,primary:#30e849,secondary:#ebe6ef"
+                                   style="width:40px;height:40px">
+                        </lord-icon>
+                        <p class="fw-medium mb-0 text-secondary">
+                            Cada día actualizamos para tener<br/>la mayor información para vos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section >
+    <!-- Section Content 4 Ends============================-->
+    <!-- ============================================-->
+    <!-- ===============================================-->
+    <!--    Section Content 5->
+     ===============================================-->
+    <div class="container2">
+        <input type="radio" name="dot" id="one">
+        <input type="radio" name="dot" id="two">
+        <input type="radio" name="dot" id="three">
+        <div class="name-creator text-center border-top border-opacity-10 m-5">Creadores👨‍💻</div>
+        <div class="main-card">
+
+            <div class="cards">
+                <div class="card">
+                    <div class="content">
+                        <div class="img">
+                            <img class="lord-icon" th:src="@{/assets/img/Avatars-icons/2.svg}" alt=""/>
+                        </div>
+                        <div class="details">
+                            <div class="name">Brian Marquez</div>
+                            <div class="job">Project Manager</div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="content">
+                        <div class="img">
+                            <img class="lord-icon" th:src="@{/assets/img/Avatars-icons/1.svg}" trigger="hover"/>
+                        </div>
+                        <div class="details">
+                            <div class="name">Marcos Benitez</div>
+                            <div class="job">Backend Devloper</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="content">
+                        <div class="img">
+                            <img class="lord-icon" th:src="@{/assets/img/Avatars-icons/4.svg}" trigger="hover">
+                        </div>
+                        <div class="details">
+                            <div class="name">Ricardo Ovilera</div>
+                            <div class="job">Full Stack Devloper</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <div class="content">
+                        <div class="img">
+                            <img class="lord-icon" th:src="@{/assets/img/Avatars-icons/6.svg}" trigger="hover">
+                        </div>
+                        <div class="details">
+                            <div class="name">Daniel Ojeda</div>
+                            <div class="job">Frontend Devloper</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="content">
+                        <div class="img">
+                            <img class="lord-icon" th:src="@{/assets/img/Avatars-icons/5.svg}" trigger="hover">
+                        </div>
+                        <div class="details">
+                            <div class="name">Marcos Wrubel</div>
+                            <div class="job">Designer and Video Creator</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card ">
+                    <div class="content">
+                        <div class="img">
+                            <img class="lord-icon" th:src="@{/assets/img/Avatars-icons/3.svg}" trigger="hover">
+                        </div>
+                        <div class="details">
+                            <div class="name">Walter Gimenez</div>
+                            <div class="job">Designer and Video Creator</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+        <div class="button">
+            <label for="one" class=" active one"></label>
+            <label for="two" class="two"></label>
+            <label for="three" class="three"></label>
+        </div>
+    </div>
+    <!-- ===============================================-->
+    <!--    Section Content 5 Ends-->
+    <!-- ===============================================-->
+    <!-- ===============================================-->
+    <!--   Contact Form -->
+    <!-- ===============================================-->
+
+
+
+    <!-- ===============================================-->
+    <!--   Contact Form  Ends-->
+    <!-- ===============================================-->
+    <!-- ===============================================-->
+    <!--    Footer Content -->
+    <!-- ===============================================-->
+    <footer class="footer pt-3">
+        <div class="container-fluid">
+            <div class="footer-content border-opacity-10 border-top text-center">
+                <span class="text-dark">&copy; 2022 Project Market-Budget. All Rights Reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===============================================-->
+    <!--    Footer Content Ends-->
+    <!-- ===============================================-->
+</main>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+<!-- SB Forms JS -->
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+<script th:src="@{/assets/js/index.js}"></script>
+</body>
+
+</html>

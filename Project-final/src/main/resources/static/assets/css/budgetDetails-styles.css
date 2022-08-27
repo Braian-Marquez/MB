@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;600;700;900&display=swap');
+:root {
+  --background-color-white: #f0f0f0;
+  --background-color-black: #353535;
+  --yellow-market: #ffdc1f;
+  --yellow-market-dark: #ffcd36;
+  --orange-market: #df622d;
+  --button-color-login: #2e67dd;
+  --button-color-singup: #de642d;
+  --button-color-update: #6bdf2d;
+  --button-color-delete: #df2d2d;
+  --button-color-show: #860020;
+  --font-color: #0c0d08;
+  --font-color-hover: #f0f0f0;
+  --font-style-Nunito: 'Nunito Sans', sans-serif;
+  --font-style-Roboto: 'Roboto', sans-serif;
+}
+body {
+  background: var(--background-color-white);
+  font-family: var(--font-style-Nunito);
+  font-size: 1.2rem;
+  color: var(--font-color);
+  font-weight: 500;
+}
+
+#logo {
+  width: 6rem;
+}
+nav {
+  font-family: var(--font-style-Nunito);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.title {
+  font-family: var(--font-style-Roboto);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color:#696969;
+
+}

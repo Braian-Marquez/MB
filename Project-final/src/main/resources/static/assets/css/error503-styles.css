@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;600;700;900&display=swap');
+:root {
+  --background-color-white: #f0f0f0;
+  --background-color-black: #353535;
+  --yellow-market: #ffdc1f;
+  --yellow-market-dark: #ffcd36;
+  --orange-market: #df622d;
+  --button-color-login: #2e67dd;
+  --button-color-singup: #de642d;
+  --button-color-update: #6bdf2d;
+  --button-color-delete: #df2d2d;
+  --button-color-show: #860020;
+  --font-color: #0c0d08;
+  --font-color-hover: #f0f0f0;
+  --font-style-Nunito: 'Nunito Sans', sans-serif;
+  --font-style-Roboto: 'Roboto', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-style-Roboto);
+  font-size: 1.2rem;
+  font-weight: 700;
+  min-height: 100vh;
+}
+
+.contain{
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  color: azure;
+}
+
+.contain h1 {
+  margin: 0;
+}
+h2{
+  font-family: var(--font-style-Nunito);
+  font-size: 3rem;
+  font-weight: 900;
+}
+.bg-pan-top {
+	-webkit-animation: bg-pan-top 5s linear infinite alternate both;
+	        animation: bg-pan-top 5s linear infinite alternate both;
+}
+
+ @-webkit-keyframes bg-pan-top {
+  0% {
+    background: var(--yellow-market);
+  }
+  100% {
+    background:  var(--orange-market);
+  }
+}
+@keyframes bg-pan-top {
+  0% {
+    background: var(--yellow-market);
+  }
+  100% {
+    background:  var(--orange-market);
+  }
+}
+

@@ -1,0 +1,97 @@
+body {
+    margin:0;
+    padding:0;
+    height:100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(62,33,152);
+    background: linear-gradient(90deg, rgba(62,33,152,1) 26%, rgba(64,142,241,1) 57%, rgba(61,145,242,1) 59%, rgba(0,212,255,1) 100%);
+}
+.slider{
+    width: 1320px;
+    height: 800px;
+    border-radius: 10px;
+    overflow: hidden;
+
+}
+.slides{
+    width: 500%;
+    height:500px;
+    display:flex;
+}
+.slides input {
+    display:none;
+}
+.slide{
+    width: 20%;
+    transition: 2s;
+}
+.slide img{
+    width: 1320px;
+    height: 800px;
+}
+/*css for manual navigation*/
+.navigation-manual{
+position:absolute;
+width: 800px;
+margin-top: -40px;
+display:flex;
+justify-content: center;
+}
+.manual-btn{
+    border:2px solid #0956A8;
+    padding: 5px;
+    border-radius: 10px;
+    cursor:pointer;
+    transition: 1s;
+}
+.manual-btn:not(:last-child){
+    margin-right: 40px;
+}
+.manual-btn:hover{
+    background:#0956A8 ;
+}
+#radio1:checked~.first {
+    margin-left: 0;
+}
+#radio2:checked~.first {
+    margin-left: -20%;
+}
+#radio3:checked~.first {
+    margin-left: -40%;
+}
+#radio4:checked~.first {
+    margin-left: -60%;
+}
+/*end of manual navigation/*
+/*css for automatic navigation*/
+.navigation-auto{
+    position:absolute;
+    display: flex;
+    width: 800px;
+    justify-content: center;
+    margin-top: 460px;
+
+}
+.navigation-auto div{
+    border: 2px ; /*el color es de muestra se puede cambiar*/
+    padding: 5px;
+    border-radius:10px;
+    transition: 1s;
+}
+.navigation-auto div :not(:last-child){
+    margin-right:40px;
+}
+#radio1:checked~.navigation-auto.navigation-auto.auto-btn1{
+    background: mediumaquamarine;
+}
+#radio2:checked~.navigation-auto.navigation-auto.auto-btn2{
+    background: mediumaquamarine;
+}
+#radio3:checked~.navigation-auto.navigation-auto.auto-btn3{
+    background: mediumaquamarine;
+}
+#radio4:checked~.navigation-auto.navigation-auto.auto-btn{
+    background: mediumaquamarine;
+}

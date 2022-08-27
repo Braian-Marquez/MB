@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Budget - Cargar Producto</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous"
+  />        <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css"
+        integrity="sha384-ejwKkLla8gPP8t2u0eQyL0Q/4ItcnyveF505U0NIobD/SMsNyXrLti6CWaD0L52l" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3 ">
+            <div class="container justify-content-between">
+
+                <div>
+                    <a th:href="@{/}" class="navbar-brand">
+                        <i class="bi bi-house h1"></i>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                        aria-controls="menu" aria-expanded="false" aria-label="Show / Hide Menu">
+                        <i class="bi bi-list h1"></i>
+                    </button>
+                    
+                </div>
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                        <li class="nav-item"><a th:href="@{/}" class="nav-link">Menu principal</a></li>
+                        <li class="nav-item"><a th:href="@{/}" class="nav-link">Mi lista</a></li>
+                        <li class="nav-item"><a th:href="@{/}" class="nav-link">Comercios</a></li>
+                        <li class="nav-item"><a th:href="@{/}" class="nav-link">Categorias</a></li>
+                        <li class="nav-item"><a th:href="@{/}" class="nav-link">Productos</a></li>
+                    </ul>
+                </div>
+
+               
+                    <div class="btn-group ms-3">
+                        <button class="btn btn-dark btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <a class="btn btn-dark" th:href><i class="bi bi-person h1"></i>
+                            </a>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" th:href="@{/}">Mi lista</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="@{/}">Cerrar sesión</a></li>
+                        </ul>
+                    </div>
+                
+        </nav>
+    </header>
+
+    <section>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-6">
+                <form th:action="@{/products/__${action}__}" th:object="${product}" method="post" autocomplete="off"
+                      class="needs-validation" novalidate>
+                    <input type="hidden" th:field="*{id}">
+
+                    <div class="form-floating mb-3">
+                        <input type="text" th:field="*{name}" id="name" class="form-control"
+                               placeholder=""
+                               required>
+                        <label for="name">Nombre del producto</label>
+                        <div class="invalid-feedback">Debe ingresar el nombre del producto</div>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="number" th:field="*{price}" id="price" class="form-control" placeholder=""
+                               required>
+                        <label for="price">Precio</label>
+                        <div class="invalid-feedback">Debe ingresar el precio del producto</div>
+                    </div>
+
+                        <div class="form-floating mb-3">
+                            <select th:field="*{categories}" id="categories" class="form-select" aria-label="Seleccionar categoria"
+                                    required>
+                                <option selected value="">Categoría</option>
+                                <option th:each="category : ${categories}" th:text="${category.name}"
+                                        th:value="${category.id}"></option>
+                            </select>
+                            <label for="categories">Seleccionar Categoría</label>
+                            <div class="invalid-feedback">Debe seleccionar una categoría</div>
+                        </div>
+    
+                        <div class="form-floating mb-3">
+                            <select th:field="*{commerce}" id="commerce" class="form-select" aria-label="Select commercio"
+                                    required>
+                                <option selected value="">Comercio</option>
+                                <option th:each="shop : ${commerce}" th:text="${shop.name}"
+                                        th:value="${shop.id}"></option>
+                            </select>
+                            <label for="commerce">Seleccionar Comercio</label>
+                            <div class="invalid-feedback">Se debe seleccionar un comercio</div>
+                        </div>
+
+
+
+                    <button th:text="${action == 'create' ? 'Create' : 'Update'}" type="submit"
+                                class="btn btn-primary"></button>
+                    </form>
+                </div>
+            </div>
+        </div>    
+    </section>
+
+
+
+
+
+    <footer class="footer fixed-bottom">
+        <div class="container-fluid">
+            <div class="footer-content text-center">
+                <span class="text-dark">&copy; 2022 Grupo 2:Egg Coop. All Rights Reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

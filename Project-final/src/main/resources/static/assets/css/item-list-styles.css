@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;600;700;900&display=swap');
+:root {
+  --background-color-white: #f0f0f0;
+  --background-color-black: #353535;
+  --yellow-market: #ffdc1f;
+  --yellow-market-dark: #ffcd36;
+  --orange-market: #df622d;
+  --button-color-login: #2e67dd;
+  --button-color-singup: #de642d;
+  --button-color-update: #6bdf2d;
+  --button-color-delete: #df2d2d;
+  --button-color-show: #860020;
+  --font-color: #0c0d08;
+  --font-color-hover: #f0f0f0;
+  --font-style-Nunito: 'Nunito Sans', sans-serif;
+  --font-style-Roboto: 'Roboto', sans-serif;
+}
+
+body {
+  color: var(--font-color);
+  background-color: var(--background-color-white);
+  overflow: hidden
+}
+#logo {
+  width: 6rem;
+}
+nav {
+  font-family: var(--font-style-Nunito);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.title {
+  font-family: var(--font-style-Roboto);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #696969;
+
+}
+table{
+ font-family: var(--font-style-Nunito);
+  font-size: 1.2em;
+  font-weight: 500;
+  
+}
+.little-title{
+  font-family: var(--font-style-Nunito);
+  font-size: 1.2em;
+  font-weight: 700;
+  color: var(--font-color);
+}
+
+.list{
+  font-family: var(--font-style-Nunito);
+  font-size: 2em;
+  font-weight: 800;
+  color: var(--font-color);
+}
+.breadcrumb{
+  font-family: var(--font-style-Nunito);
+  font-size: 1.2em;
+  font-weight: 700;
+  color: var(--font-color);
+}
+h3{
+  font-family: var(--font-style-Nunito);
+  font-size: 1.2em;
+  font-weight: 700;
+  color: var(--font-color);
+}
+.colum-titles{
+  font-family: var(--font-style-Nunito);
+  font-size: 1.2em;
+  font-weight: 700;
+  color: var(--font-color);
+}
+
+.card-title{
+  text-align: center;
+  font-family: var(--font-style-Nunito);
+  font-size: 1.2em;
+  font-weight: 700;
+  color: var(--font-color);
+}
+.order{
+  font-family: var(--font-style-Nunito);
+  font-size: 1.2em;
+  font-weight: 700;
+}

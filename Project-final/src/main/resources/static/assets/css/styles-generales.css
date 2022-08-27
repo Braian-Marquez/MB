@@ -1,0 +1,16 @@
+/* globals variables */
+
+:root {
+  --background-color-withe: #f0f0f0;
+  --background-color-black: #353535;
+  --yellow-market: #ffdc1f;
+  --yellow-market-dark: #ffcd36;
+  --orange-market: #df622d;
+  --button-color-login: #2d34df;
+  --button-color-singup: #de642d;
+  --button-color-update: #6bdf2d;
+  --button-color-delete: #df2d2d;
+  --button-color-show: #860020;
+  --font-color: #0c0d08;
+  --font-color-hover: #f0f0f0;
+}

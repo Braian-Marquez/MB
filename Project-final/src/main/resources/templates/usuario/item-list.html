@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+	<!-- FontAwesome  -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+		integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<link rel="shortcut icon" th:href="@{/assets/img/Logos-Icons/item-list.svg}" type="image/x-icon">
+	<link rel="stylesheet" th:href="@{/assets/css/item-list-styles.css}">
+	<title>Market Budget - Lista de productos</title>
+</head>
+
+<body>
+	<!-- ===============================================-->
+	<!--    Header Content-->
+	<!-- ===============================================-->
+	<header>
+		<!-- ===============================================-->
+		<!--    Nav Content-->
+		<!-- ===============================================-->
+		<nav class="navbar navbar-expand-lg navbar-light sticky-top " data-navbar-on-scroll="data-navbar-on-scroll">
+			<div class="container">
+				<a class="navbar-brand" th:href="@{/}">
+					<img th:src="@{/assets/img/Logos/MarketBudget.png}" alt="logo" id="logo" />
+				</a>
+				<h2 class="title">Market Budget</h2>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse border-bottom border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+					<ul class="navbar-nav ms-auto">
+					</ul>
+					<ul class="nav navbar-nav">
+						<li class="nav-item dropdown">
+							<a href="/customer/user-profile" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
+									class="fa-solid fa-user ms-2"></i></a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+								<li><a class="dropdown-item" th:href="@{/customer/budgets}">Mi Lista</a></li>
+								<li>
+									<a class="dropdown-item" th:href="@{/logout}">Cerrar Sesion</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- ===============================================-->
+		<!--    Nav Content Ends-->
+		<!-- ===============================================-->
+
+	</header>
+	<!-- ===============================================-->
+	<!--    Header Content Ends-->
+	<!-- ===============================================-->
+	<!-- Page Content -->
+	<div class="container">
+		<!-- Page Heading/Breadcrumbs -->
+		<h2 class="mt-4 mb-3 text-center" style="
+		font-family: 'Nunito Sans', sans-serif;
+  	font-size: 3em;
+  	font-weight: 700;
+		">
+			Lista de productos
+		</h2>
+
+
+
+
+		<div class="card mb-4">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-lg-9">
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Producto</th>
+									<th scope="col">Precio</th>
+									<th scope="col">Cantidad</th>
+									<th scope="col">Total</th>
+									<th scope="col">Acción</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="detail : ${budgetDetails}">
+									<td th:text="${detail.product.name}"></td>
+									<td th:text="'$'+${detail.product.price}"></td>
+									<td th:text="${detail.quantity}"></td>
+									<td th:text="'$'+${detail.total}"></td>
+
+
+									<td>
+										<form th:action="@{/home/delete/__${detail.product.id}__}" method="POST">
+											<button type="submit" class="btn btn-danger">Eliminar</button>
+										</form>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="col-lg-3">
+						<h2 class="card-title" style="
+						font-family: 'Nunito Sans', sans-serif;
+						font-size: 3em;
+						font-weight: 700;
+						">Subtotal</h2>
+
+						<ul class="list-group">
+							<li class="list-group-item">
+								<h5 th:text=" 'Total: '+ '$'+${budget.total} "> </h5>
+							</li>
+							<a th:href="@{/home}" class="mb-2 btn btn-dark"
+							style="
+							font-family: 'Nunito Sans', sans-serif;
+							font-size: 1.2em;
+							font-weight: 700;
+							background-color: #6bdf2d;
+							border: #6bdf2d;
+							"
+							><i class="fa-solid fa-cart-plus me-1"></i>Agregar</a>
+
+							<a th:href="@{budget_details}" class="btn btn-dark"
+							style="
+							font-family: 'Nunito Sans', sans-serif;
+							font-size: 1.1em;
+							font-weight: 700;
+							background-color: #ffcd36;
+							border: transparent;
+							color: #353535;
+							"><i class="fa-solid fa-file me-1"></i>Ver Resumen</a>
+
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer class="footer pt-3 fixed-bottom">
+		<div class="container-fluid">
+			<div class="footer-content border-opacity-10 border-top text-center">
+				<span class="text-dark">&copy; 2022 Project Market-Budget. All Rights Reserved.</span>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+		integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+		integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+		crossorigin="anonymous"></script>
+
+</body>
+
+</html>

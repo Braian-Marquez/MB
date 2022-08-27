@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">  <!-- ===============================================-->
+  <!--    Stylesheets-->
+  <!-- ===============================================-->
+  <link rel="stylesheet" th:href="@{/assets/css/registro-style.css}">
+  <link rel="shortcut icon" href="#" type="image/x-icon">
+  <title>Registro</title>
+</head>
+
+<body>
+<div th:if="${error}" th:text="${error}" class="alert alert-danger shadow text-center"></div>
+<div th:if="${logout}" th:text="${logout}" class="alert alert-success shadow text-center"></div>
+  <!-- ===============================================-->
+  <!--    Main Content-->
+  <!-- ===============================================-->
+        <form th:action="@{/auth/register}" th:object="${userDTO}" method="post" autocomplete="off" class="sign-up-form">
+            <!--<div class="form-wrap">
+          </div>-->
+          <img th:src="@{/assets/img/Logos/MarketBudget.png}" alt=" " width="250px" height="125px" ><!--hay que rutear la imagen del logo para que se vea sino eliminar noma esta linea-->
+          <div class="form">  
+              <h2 class="form__title">Registro</h2>
+              <p class="form_paragraph">Ingresa tus datos y vivi la experiencia de Market-Budget Completa.</p>
+            <div class="form__container">
+
+              <div class="form__group">
+                <input type="text" th:field="*{name}" id="user_name" class="form__input" required placeholder=" ">
+                <label for="user_name" required class="form__label"> Nombre/s </label>
+                <span class="form__line"></span>
+              </div>
+
+               <div class="form__group">
+                <input type="text" th:field="*{surname}" id="user_surname" class="form__input" required placeholder=" ">
+                <label for="user_surname" required class="form__label"> Apellido/s </label>
+                <span class="form__line"></span> 
+               </div>
+               
+               <div class="form__group">
+                <input type="text" th:field="*{email}" id="user_email" class="form__input" required placeholder=" ">
+                <label for="user_email" required class="form__label"> Email </label>
+                <span class="form__line"></span> 
+                </div>
+                
+                <div class="form__group">
+                <input type="password" th:field="*{password}" id="password" class="form__input" required placeholder=" ">
+                <label for="password" required class="form__label"> Contraseña </label>
+                <span class="form__line"></span>
+                </div>
+
+                <!--<div class="form__group">
+                <input type="password" id="password" class="form__input" placeholder=" ">
+                <label for="password" required class="form__label"> Confirmar Contraseña </label>
+                <span class="form__line"></span>
+                </div>-->
+
+                <input type="hidden" th:field="*{role}">
+              <input type="submit" class="form__submit" value="Ingresar">
+            </div>
+              <div class="form__paragraph">
+                  <h2>¡Comencemos!</h2>
+                  <h6>¿Ya estas registrado?</h6>
+                  <a th:href="@{/auth/login}" class="toggle">Inicia Sesión</a>
+              </div>
+        </div>
+
+            </form>
+
+
+
+
+
+
+  <!-- ===============================================-->
+  <!--    Main Content Ends-->
+  <!-- ===============================================-->
+  <!-- Bootstrap JS -->
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+  <script th:src="@{/assets/js/login.js}"></script>
+
+</body>
+
+</html>
